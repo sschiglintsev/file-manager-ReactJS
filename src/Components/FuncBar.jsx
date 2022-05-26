@@ -43,7 +43,6 @@ export const MenuListComposition = () => {
     }
 
     const nameClickFile = useSelector(state => state.filesManager.clikFile)
-    console.log(nameClickFile)
     const removeFile = () => {
         dispatch(RemoveFileAC(nameClickFile))
         dispatch(RemoveFileTreeAC(nameClickFile))

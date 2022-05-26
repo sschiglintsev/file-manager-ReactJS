@@ -25,6 +25,7 @@ const initState = {
     ]};
 
 export const FilesManagerReducer = (state = initState, action) => {
+    //debugger
     switch (action.type) {
         case 'LOAD-FILE': {
             const newFile = {
