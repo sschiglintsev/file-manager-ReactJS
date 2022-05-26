@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import style from './App.module.css'
+import {MenuListComposition} from "./Components/FuncBar";
+import {BasicTabs} from "./Components/LabTabs";
+import {FolderNavigator} from "./Components/FolderNavigator";
+import {useSelector} from "react-redux";
 
-function App() {
+
+export const App = () => {
+    const explorer = useSelector(state => state.treeManager)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <MenuListComposition />
+        <div className={style.view}>
+          <div className={style.navigator}>
+            <FolderNavigator explorer={explorer}/>
+          </div>
+          <div>
+            <BasicTabs />
+          </div>
+        </div>
+      </div>
   );
-}
-
-export default App;
+};
